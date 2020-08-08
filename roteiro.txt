@@ -1,0 +1,21 @@
+Aula 08 - Roteiro - 
+
+()Criar projeto a partir do projeto base
+
+()Em App.js criar o state com countries:[]
+
+()Em App.js busscar todos os países em
+componentDidMount e filtrar os dados que
+de fato interessam.
+URL:http://restcountries.eu/rest/v2/all
+
+()Criar componente Countries para listar os países.
+()Criar componente Coutry para exibir cada pais.
+
+()Criar componente header que vai incluir imput e labels.
+()Fazer com que o input filtre os países
+()Fazer que os labels reajam ao filtro
+
+()Criar a pasta 'helpers' com o arquivo formatHelpers.js
+()Criar funções para formatar valores a partir de Intl
+()Estilizar o app.
