@@ -10,6 +10,7 @@ export default class App extends Component {
       allCountries: [],
       filter: '',
       filteredCountries: [],
+      totalPopulation: 0,
     }
   }
 
@@ -30,6 +31,7 @@ export default class App extends Component {
     this.setState({
       allCountries,
       filteredCountries: Object.assign([], allCountries),
+      totalPopulation: this.calculatePopulation(allCountries)
     })
   }
 
@@ -43,12 +45,21 @@ export default class App extends Component {
     const filteredCountries = this.state.allCountries
       .filter((country) => {
         return country.filteredName.includes(filterToLowerCase);
-      })
+      });
 
     this.setState({
       filteredCountries,
+      totalPopulation: this.calculatePopulation(filteredCountries)
     });
 
+  }
+
+  calculatePopulation = (countries) => {
+    const totalPopulation = countries.reduce((accumulator, country) => {
+      return accumulator + country.population;
+    },0);
+
+    return totalPopulation;
   }
 
   render() {
@@ -57,7 +68,12 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1>React components</h1>
-        <Header onFilterChange={this.onFilterChange} />
+        <Header
+          onFilterChange={this.onFilterChange}
+          totalCountries={this.state.filteredCountries.length}
+          totalPopulation={this.state.totalPopulation}
+
+        />
         <Countries countries={filteredCountries} />
       </div>
     )
