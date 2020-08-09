@@ -67,7 +67,7 @@ export default class App extends Component {
 
     return (
       <div className="container">
-        <h1>React components</h1>
+        <h1>React Countries</h1>
         <Header
           onFilterChange={this.onFilterChange}
           totalCountries={this.state.filteredCountries.length}
